@@ -1,0 +1,15 @@
+@startuml
+
+actor Admin
+participant "CreateStudentPage" as CSP
+participant "StudentController" as SC
+participant "StudentModel" as SM
+
+Admin -> CSP : input student data
+CSP -> SC : submit_form(data)
+SC -> SM : save_to_database(data)
+SM --> SC : confirm saved
+SC --> CSP : return success
+CSP --> Admin : show success message
+
+@enduml
